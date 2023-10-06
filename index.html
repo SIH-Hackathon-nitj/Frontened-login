@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5cf30f0f7e.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form action="">
+                <div class="input-group">
+                    <div class="input-field" id="namefield">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name">
+                    </div>
+
+                    <div class="input-field" id="applifield">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <input type="number" placeholder="Application number">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+
+                    <div class="input-field" >
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+
+                    <div class="input-field" id="confpass">
+                        <i class="fa-solid fa-user-lock"></i>
+                        <input type="password" placeholder="Confirm-Password">
+                    </div>
+                </div>
+
+                  <p id="forgot">Forgot Password? <a href="#">Click Here!</a></p>
+                <div class="btn-field">
+                    <button type="button" id="signupBtn">Continue -></button>
+                    <button type="button" class="disable" id="signinBtn">Sign In</button>
+                </div>
+        </div>
+        
+        </form>
+    </div>
+    </div>
+    <script>
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let namefield = document.getElementById("namefield");
+        let applifield = document.getElementById("applifield");
+        let confpass = document.getElementById("confpass");
+        let title = document.getElementById("title");
+        let forgot = document.getElementById("forgot");
+
+        signinBtn.onclick = function () {
+            namefield.style.maxHeight = "0";
+            applifield.style.maxHeight = "0";
+            confpass.style.maxHeight = "0";
+            title.innerHTML = "Sign In";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+            forgot.innerHTML = "Forgot Password?";
+        }
+        signupBtn.onclick = function () {
+            namefield.style.maxHeight = "60px";
+            applifield.style.maxHeight = "60px";
+            confpass.style.maxHeight = "60px";
+            title.innerHTML = "Sign up";
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
+            forgot.innerHTML = "";
+        }
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById("passwordField");
+            const togglePassword = document.getElementById("togglePassword");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                togglePassword.innerHTML = "&#x1F440;";
+            } else {
+                passwordField.type = "password";
+                togglePassword.innerHTML = "&#x1F441;";
+            }
+        }
+    </script>
+</body>
+
+</html>
